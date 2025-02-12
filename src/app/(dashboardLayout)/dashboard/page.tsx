@@ -9,7 +9,7 @@ const DashboardPage =async () => {
   return (
     <>
       <div className="">
-      <DashboardHome user={session?.user} />
+      <DashboardHome session={ session} />
       </div>
     </>
   );

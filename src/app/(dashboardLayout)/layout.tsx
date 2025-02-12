@@ -1,17 +1,13 @@
 import DashboardSidebar from "@/components/ui/dashboard/DashboardSidebar";
-import { authOptions } from "@/utils/authOptions";
-import { getServerSession } from "next-auth";
 
 const DashboardLayout = async ({
   children,
 }: Readonly<{ children: React.ReactNode }>) => {
-
-  const session = await getServerSession(authOptions);
   return (
     <div className="min-h-screen flex ">
       {/* Sidebar - Responsive */}
       <aside className="">
-        <DashboardSidebar session={session}/>
+        <DashboardSidebar />
       </aside>
 
       {/* Main Content */}

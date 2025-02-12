@@ -10,10 +10,14 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const BlogPage = () => {
   const { blogId } = useParams();
 
+  const url = process.env.BACK_END_API
+
   const { data, error, isLoading } = useSWR<TBlogResponse>(
-    blogId ? `https://blog-rest-api-self.vercel.app/api/blog/${blogId}` : null,
+    blogId ? `${process.env.BACK_END_API}/blog/${blogId}` : null,
     fetcher
   );
+
+  console.log(data,url)
 
   if (isLoading) {
     return (

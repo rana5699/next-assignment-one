@@ -6,10 +6,10 @@ import {
   UserOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
-import { TUser } from "@/types/user.types";
 import { signOut } from "next-auth/react";
+import { Session } from "next-auth";
 
-const DashboardHome = ({ user }: { user: TUser | null }) => {
+const DashboardHome = ({ session }: { session: Session | null }) => {
   const handelLogout = () => {
     signOut({ callbackUrl: "/" });
   };
@@ -21,10 +21,10 @@ const DashboardHome = ({ user }: { user: TUser | null }) => {
         {/* 🌟 Dashboard Banner */}
         <div className="relative bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl p-6 mb-6 shadow-lg">
           <div className="flex items-center space-x-4">
-            <Avatar size={80} src={user?.image} icon={<UserOutlined />} />
+            <Avatar size={80} src={session?.user?.image} icon={<UserOutlined />} />
             <div>
               <h1 className="text-2xl md:text-3xl font-bold">
-                Welcome back, {user?.name}.
+                Welcome back, {session?.user?.name}.
               </h1>
               <p className="text-sm md:text-base opacity-90">
                 Manage your blogs and projects efficiently.

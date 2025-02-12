@@ -12,10 +12,10 @@ const ThemeProviderLayout = ({ children }: { children: React.ReactNode }) => {
     <ConfigProvider theme={themeConfig}>
       <div
         style={{
-          backgroundColor: themeConfig?.token.colorBgBase, // ✅ Apply global background color
-          color: themeConfig.token.colorTextBase, // ✅ Apply global text color
-          minHeight: "100vh", // ✅ Ensure full-page coverage
-          transition: "background-color 0.3s ease", // ✅ Smooth transition
+          backgroundColor: themeConfig?.token?.colorBgBase, 
+          color: themeConfig?.token?.colorTextBase, 
+          minHeight: "100vh",
+          transition: "background-color 0.3s ease", 
         }}
       >
         {children}
